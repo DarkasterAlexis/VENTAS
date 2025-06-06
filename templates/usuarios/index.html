@@ -21,10 +21,10 @@
         <td>{{item.username}}</td>
         <td>{{item.rol}}</td>
         <td>
-            <a href="{{url_for(usuarioi.edit,id=item.id)}}" class="bt btn-warning">Editar</a>
+            <a href="{{url_for('usuario.edit',id=item.id)}}" class="btn btn-warning">Editar</a>
         </td>
         <td>
-            <a href="{{url_for(usuarioi.delete,id=item.id)}}" class="bt btn-danger">Eliminar</a>
+            <a href="{{url_for('usuario.delete',id=item.id)}}" class="btn btn-danger">Eliminar</a>
         </td>
     </tr>
     {%endfor%}

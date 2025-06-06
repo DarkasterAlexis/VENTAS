@@ -2,12 +2,12 @@ from flask import request,redirect,url_for,Blueprint
 from models.usuario_model import Usuario
 from views import usuario_view
 
-usuario_bp =Blueprint('usuario',__name__,url_prefix="/usuario")
+usuario_bp = Blueprint('usuario',__name__,url_prefix="/usuarios")
 
 @usuario_bp.route("/")
 def index():
-    usuario = Usuario.get_all()
-    return usuario_view.list(usuario)
+    usuarios = Usuario.get_all()
+    return usuario_view.list(usuarios)
 
 @usuario_bp.route("/create",methods=['GET','POST'])
 def create():
@@ -25,7 +25,7 @@ def create():
 def edit(id):
     usuario = Usuario.get_by_id(id)
     if request.method == 'POST':
-        nombre = request.form['usuario']
+        nombre = request.form['nombre']
         username = request.form['username']
         password = request.form['password']
         rol = request.form['rol']

@@ -13,7 +13,7 @@ class Usuario(db.Model):
         self.nombre= nombre
         self.username= username
         self.password= self.hash_password(password)
-        self.rol= rol
+        self.rol= rol 
         
     @staticmethod
     def hash_password(password):
