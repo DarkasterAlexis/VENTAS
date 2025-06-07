@@ -1,0 +1,20 @@
+{% extends 'base1.html' %}
+{% block title %} PANEL DE USUARIO {%endblock%}
+{% block content %}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Bienvenido {{nombre}} </h2>
+    <div class="card">
+        <div class="card-body">
+            <p><strong>Nombre de usuario: </strong> {{username}} </p>
+        </div>
+    </div>
+    <div class="text-left">
+        <button class="btn btn-success"><a href="/usuarios/" class="text text-white">Siguiente</a></button>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-success"><a href="{{url_for('usuario.logout')}}" class="text text-white">Cerrar Sesión</a></button>
+    </div>
+</div>
+
+{% endblock %}

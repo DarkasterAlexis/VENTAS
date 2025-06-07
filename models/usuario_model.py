@@ -1,7 +1,8 @@
+from flask_login import UserMixin
 from database import db
 from werkzeug.security import generate_password_hash, check_password_hash
 
-class Usuario(db.Model):
+class Usuario(db.Model, UserMixin):
     __tablename__ = "usuario"
     id = db.Column(db.Integer,primary_key = True)
     nombre = db.Column(db.String(80),nullable=False)
@@ -48,3 +49,11 @@ class Usuario(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()
+    
+    @staticmethod
+    def get_by_id(user_id):
+        return Usuario.query.get(user_id)
+    
+    @staticmethod
+    def get_by_username(username):
+        return Usuario.query.filter_by(username=username).first()

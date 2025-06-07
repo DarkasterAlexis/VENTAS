@@ -8,3 +8,12 @@ def create():
 
 def edit(usuarios):
     return render_template('usuarios/edit.html',usuarios= usuarios)
+
+def login():
+    return render_template("login.html")
+
+def dashboard(usuario):
+    return render_template("dashboard.html",usuario=usuario)
+
+def register():
+    return render_template("register.html")
